@@ -1,4 +1,4 @@
-package pl.wojdalski.learningmanagementsystem.Controller;
+package pl.wojdalski.learningmanagementsystem.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

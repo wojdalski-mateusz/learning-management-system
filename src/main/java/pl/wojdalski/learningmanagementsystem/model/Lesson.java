@@ -23,7 +23,7 @@ public class Lesson {
 
     private String description;
 
-   // private List<User> users;
+    private List<User> users;
 
 
     public Lesson() {

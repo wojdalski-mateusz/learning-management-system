@@ -24,4 +24,24 @@ public class Lesson {
     private String description;
 
    // private List<User> users;
+
+
+    public Lesson() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public String getDescription() {
+        return description;
+    }
 }

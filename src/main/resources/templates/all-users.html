@@ -15,7 +15,7 @@
         <th>Nazwisko</th>
         <th>Login</th>
         <th>E-mail</th>
-        <th>Status</th>
+        <th>Akcja</th>
     </tr>
     </thead>
     <tbody>
@@ -24,8 +24,18 @@
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.login}"></td>
         <td th:text="${user.email}"></td>
+
+        <td>
+            <a th:href="@{/uzytkownik/usun(id=${user.id})}">usuń</a> |
+            <a th:href="@{/uzytkownik/edytuj(id=${user.id})}">edytuj</a>
+        </td>
     </tr>
     </tbody>
 </table>
+
+<div>
+    <a th:href="@{/}">Strona główna</a>
+</div>
+
 </body>
 </html>

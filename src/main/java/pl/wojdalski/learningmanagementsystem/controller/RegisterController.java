@@ -35,12 +35,6 @@ public class RegisterController {
         return "register";
     }
 
-    @GetMapping(value = "/lista")
-    public String getAll(Model model) {
-        List<User> users = userRepository.findAll();
-        model.addAttribute("users", users);
-        return "all-users";
-    }
 
     @PostMapping(value = "/podsumowanie")
     public String summaryRegister(@ModelAttribute User user,

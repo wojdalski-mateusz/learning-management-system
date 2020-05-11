@@ -8,13 +8,23 @@
 <body>
 <h2>Rejestracja użytkownika</h2>
 
-<form th:action="@{/rejestracja}" method="post" th:object="${user}">
+<form th:action="@{/rejestracja/podsumowanie}" method="post" th:object="${user}">
 
+    <label>
     Imię: <input type="text" th:field="*{firstName}"><br>
+    </label>
+    <label>
     Nazwisko: <input type="text" th:field="*{lastName}"><br>
+    </label>
+    <label>
     Login: <input type="text" th:field="*{login}"><br>
+    </label>
+    <label>
     E-mail: <input type="text" th:field="*{email}"><br>
+    </label>
+    <label>
     Hasło: <input type="password" th:field="*{password}"><br>
+    </label>
 
     <input type="submit" value="Zarejestruj">
 </form>

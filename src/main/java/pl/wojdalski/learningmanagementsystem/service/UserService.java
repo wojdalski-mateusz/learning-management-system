@@ -1,6 +1,5 @@
 package pl.wojdalski.learningmanagementsystem.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.UserRepository;

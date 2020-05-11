@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj zajęcia</title>
+</head>
+<body>
+<h2>Dodaj zajęcia</h2>
+
+<form th:action="@{/zajecia/lista}" method="post" th:object="${lesson}">
+
+    <label>
+        Temat: <input type="text" th:field="*{subject}"><br>
+    </label>
+    <label>
+        Data: <input type="date" th:field="*{date}"><br>
+    </label>
+    <label>
+        Opis: <input type="text" th:field="*{description}"><br>
+    </label>
+
+    <input type="hidden" th:field="*{id}">
+    <input type="submit" value="Dodaj">
+</form>
+<div>
+    <a th:href="@{/}">Strona główna</a>
+</div>
+</body>
+</html>

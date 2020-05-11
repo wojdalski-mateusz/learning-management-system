@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista zajęć</title>
+</head>
+<body>
+<h2>Lista zajęć</h2>
+
+<table>
+    <thead>
+    <tr>
+        <th>Temat</th>
+        <th>Data</th>
+        <th>Opis</th>
+        <th>Akcja</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="lesson: ${lessons}">
+        <td th:text="${lesson.subject}"></td>
+        <td th:text="${lesson.date}"></td>
+        <td th:text="${lesson.description}"></td>
+
+        <td>
+            <a th:href="@{/zajecia/usun(id=${lesson.id})}">usuń</a> |
+            <a th:href="@{/zajecia/edytuj(id=${lesson.id})}">edytuj</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<div>
+    <a th:href="@{/zajecia/dodaj}">Dodaj zajęcia</a>
+</div>
+<div>
+    <a th:href="@{/}">Strona główna</a>
+</div>
+
+</body>
+</html>

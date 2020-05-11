@@ -20,8 +20,6 @@ public class Lesson {
 
     private String description;
 
-    @ManyToMany
-    private List<User> users;
 
 
     public Lesson() {

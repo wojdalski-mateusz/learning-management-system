@@ -17,9 +17,6 @@ public class User {
 
     private String password;
 
-    @ManyToOne
-    private Role role;
-
     private String email;
 
     private boolean isActive;

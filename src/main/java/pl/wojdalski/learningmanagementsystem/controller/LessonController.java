@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.wojdalski.learningmanagementsystem.model.Lesson;
-import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.LessonRepository;
 import pl.wojdalski.learningmanagementsystem.service.LessonService;
 import pl.wojdalski.learningmanagementsystem.service.UserService;

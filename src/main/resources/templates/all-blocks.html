@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bloki zajęć</title>
+</head>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nazwa</th>
+        <th>Lista zajęć</th>
+        <th>Akcja</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="block: ${blocks}">
+        <td th:text="${block.name}"></td>
+        <td>
+            <ul>
+                <li th:each="lesson: ${block.lessons}" th:text="${lesson.subject}"></li>
+            </ul>
+        </td>
+
+        <td>
+            <a th:href="@{/blok/usun(id=${block.id})}">usuń</a> |
+            <a th:href="@{/blok/edytuj(id=${block.id})}">edytuj</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a th:href="@{/blok/dodaj}">Dodaj blok zajęć</a>
+</div>
+<div>
+    <a th:href="@{/}">Strona główna</a>
+</div>
+
+
+
+</body>
+</html>

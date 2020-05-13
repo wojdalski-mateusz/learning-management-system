@@ -4,6 +4,7 @@ package pl.wojdalski.learningmanagementsystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.model.IModel;
 import pl.wojdalski.learningmanagementsystem.model.Lesson;
 import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.UserRepository;
@@ -24,6 +25,11 @@ public class UserController {
         this.userRepository = userRepository;
         this.userService = userService;
         this.lessonService = lessonService;
+    }
+
+    @GetMapping(value = "")
+    public String dashboard(){
+        return "user/dashboard";
     }
 
     @GetMapping(value = "/lista")

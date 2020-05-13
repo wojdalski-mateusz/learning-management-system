@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pl.wojdalski.learningmanagementsystem.model.Block;
 import pl.wojdalski.learningmanagementsystem.model.Lesson;
-import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.BlockRepository;
 import pl.wojdalski.learningmanagementsystem.service.BlockServis;
 import pl.wojdalski.learningmanagementsystem.service.LessonService;

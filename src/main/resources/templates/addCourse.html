@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj kurs</title>
+</head>
+<body>
+<h2>Dodaj nowy kurs</h2>
+
+<form th:action="@{/kurs/lista}" method="post" th:object="${course}">
+
+    <label>
+        Nazwa: <input type="text" th:field="*{name}"><br>
+    </label>
+    <label>
+        Wybierz bloki zajęć w ramach kursu:
+
+        <p th:each="block: ${blockList}">
+            <input type="checkbox" th:field="*{blocks}" th:value="${block.id}">
+            <span th:text="${block.name}"></span>
+        </p>
+    </label>
+
+    <input type="hidden" th:field="*{id}">
+    <input type="submit" value="Dodaj">
+</form>
+<div>
+    <a th:href="@{/}">Strona główna</a>
+</div>
+</body>
+</html>

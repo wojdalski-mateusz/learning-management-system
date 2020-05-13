@@ -4,8 +4,10 @@ package pl.wojdalski.learningmanagementsystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import pl.wojdalski.learningmanagementsystem.model.Lesson;
 import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.UserRepository;
+import pl.wojdalski.learningmanagementsystem.service.LessonService;
 import pl.wojdalski.learningmanagementsystem.service.UserService;
 
 import java.util.List;
@@ -16,10 +18,12 @@ public class UserController {
 
     private UserRepository userRepository;
     private UserService userService;
+    private LessonService lessonService;
 
-    public UserController(UserRepository userRepository, UserService userService) {
+    public UserController(UserRepository userRepository, UserService userService, LessonService lessonService) {
         this.userRepository = userRepository;
         this.userService = userService;
+        this.lessonService = lessonService;
     }
 
     @GetMapping(value = "/lista")
@@ -51,7 +55,9 @@ public class UserController {
 
     @GetMapping(value = "/edytuj")
     public String editUser(@RequestParam Long id,
-                       Model model) {
+                           Model model) {
+        List<Lesson> lessonList = lessonService.findAll();
+        model.addAttribute("lessonList", lessonList);
         model.addAttribute("user", userService.getUser(id));
         return "addUser";
     }

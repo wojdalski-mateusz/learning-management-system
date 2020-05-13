@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import pl.wojdalski.learningmanagementsystem.model.Lesson;
 import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.UserRepository;
+import pl.wojdalski.learningmanagementsystem.service.LessonService;
 import pl.wojdalski.learningmanagementsystem.service.UserService;
 
 
@@ -17,19 +19,20 @@ import java.util.List;
 public class RegisterController {
 
     private UserService userService;
-    private UserRepository userRepository;
+    private LessonService lessonService;
 
-    public RegisterController(UserService userService, UserRepository userRepository) {
+
+    public RegisterController(UserService userService, LessonService lessonService) {
         this.userService = userService;
-        this.userRepository = userRepository;
+        this.lessonService = lessonService;
     }
 
     @GetMapping(value = "")
     public String register(Model model) {
 
-        List<User> userList = userService.findAll();
+        List<Lesson> lessonList = lessonService.findAll();
 
-        model.addAttribute("userList", userList);
+        model.addAttribute("lessonList", lessonList);
         model.addAttribute("user", new User());
 
         return "register";

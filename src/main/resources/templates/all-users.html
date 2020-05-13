@@ -8,13 +8,14 @@
 <body>
 <h2>Lista użytkowników</h2>
 
-<table>
+<table border="1">
     <thead>
     <tr>
         <th>Imię</th>
         <th>Nazwisko</th>
         <th>Login</th>
         <th>E-mail</th>
+        <th>Wybrane zajęcia</th>
         <th>Akcja</th>
     </tr>
     </thead>
@@ -24,7 +25,11 @@
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.login}"></td>
         <td th:text="${user.email}"></td>
-
+        <td>
+        <ul>
+            <li th:each="lesson: ${user.lessons}" th:text="${lesson.subject}"></li>
+        </ul>
+        </td>
         <td>
             <a th:href="@{/uzytkownik/usun(id=${user.id})}">usuń</a> |
             <a th:href="@{/uzytkownik/edytuj(id=${user.id})}">edytuj</a>

@@ -7,6 +7,7 @@ import pl.wojdalski.learningmanagementsystem.model.Lesson;
 import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.LessonRepository;
 import pl.wojdalski.learningmanagementsystem.service.LessonService;
+import pl.wojdalski.learningmanagementsystem.service.UserService;
 
 import java.util.List;
 
@@ -17,13 +18,13 @@ public class LessonController {
 
     private LessonRepository lessonRepository;
     private LessonService lessonService;
+    private UserService userService;
 
-    public LessonController(LessonRepository lessonRepository, LessonService lessonService) {
+    public LessonController(LessonRepository lessonRepository, LessonService lessonService, UserService userService) {
         this.lessonRepository = lessonRepository;
         this.lessonService = lessonService;
+        this.userService = userService;
     }
-
-
 
     @GetMapping(value = "/lista")
     public String getAll(Model model) {
@@ -33,7 +34,7 @@ public class LessonController {
     }
 
     @PostMapping(value = "/lista")
-    public String addLessonr(@ModelAttribute Lesson lesson) {
+    public String addLesson(@ModelAttribute Lesson lesson) {
 
         lessonService.save(lesson);
 

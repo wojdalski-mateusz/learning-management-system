@@ -8,12 +8,12 @@
 <body>
 <h2>Lista zajęć</h2>
 
-<table>
+<table border="1">
     <thead>
     <tr>
         <th>Temat</th>
         <th>Data</th>
-        <th>Opis</th>
+        <th>Powiadomienia</th>
         <th>Akcja</th>
     </tr>
     </thead>
@@ -21,7 +21,7 @@
     <tr th:each="lesson: ${lessons}">
         <td th:text="${lesson.subject}"></td>
         <td th:text="${lesson.date}"></td>
-        <td th:text="${lesson.description}"></td>
+        <td th:text="${lesson.notification}"></td>
 
         <td>
             <a th:href="@{/zajecia/usun(id=${lesson.id})}">usuń</a> |
@@ -30,14 +30,13 @@
     </tr>
     </tbody>
 </table>
-
-
 <div>
     <a th:href="@{/zajecia/dodaj}">Dodaj zajęcia</a>
 </div>
 <div>
     <a th:href="@{/}">Strona główna</a>
 </div>
+
 
 </body>
 </html>

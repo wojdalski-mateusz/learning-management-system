@@ -13,7 +13,10 @@ Imię: <span th:text="${user.firstName}"></span><br>
 Nazwisko: <span th:text="${user.lastName}"></span><br>
 Login: <span th:text="${user.login}"></span><br>
 E-mail: <span th:text="${user.email}"></span><br>
-
+Wybrane zajęcia:
+<ul>
+    <li th:each="lesson: ${user.lessons}" th:text="${lesson.subject}"></li>
+</ul>
 <div>
     <a th:href="@{/}">Strona główna</a>
 </div>

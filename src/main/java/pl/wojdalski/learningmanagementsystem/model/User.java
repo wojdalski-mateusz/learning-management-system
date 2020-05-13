@@ -1,6 +1,7 @@
 package pl.wojdalski.learningmanagementsystem.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -18,6 +19,9 @@ public class User {
     private String password;
 
     private String email;
+
+    @ManyToMany
+    private List<Lesson> lessons;
 
 
     public User() {
@@ -69,5 +73,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(List<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }

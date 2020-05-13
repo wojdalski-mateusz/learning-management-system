@@ -25,6 +25,14 @@
     <label>
     Hasło: <input type="password" th:field="*{password}"><br>
     </label>
+    <label>
+        Wybierz zajęcia:
+
+        <p th:each="lesson: ${lessonList}">
+            <input type="checkbox" th:field="*{lessons}" th:value="${lesson.id}">
+            <span th:text="${lesson.subject}"></span>
+        </p>
+    </label>
 
     <input type="submit" value="Zarejestruj">
 </form>

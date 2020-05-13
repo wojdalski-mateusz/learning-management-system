@@ -4,6 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Lesson {
@@ -17,9 +18,10 @@ public class Lesson {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate date;
 
-    private String description;
+    private String notification;
 
-
+    @ManyToMany
+    private List<User> users;
 
     public Lesson() {
     }
@@ -48,11 +50,19 @@ public class Lesson {
         this.date = date;
     }
 
-    public String getDescription() {
-        return description;
+    public String getNotification() {
+        return notification;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setNotification(String notification) {
+        this.notification = notification;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

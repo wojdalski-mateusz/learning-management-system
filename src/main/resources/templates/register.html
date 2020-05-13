@@ -26,11 +26,11 @@
     Hasło: <input type="password" th:field="*{password}"><br>
     </label>
     <label>
-        Wybierz zajęcia:
+        Wybierz kurs/y:
 
-        <p th:each="lesson: ${lessonList}">
-            <input type="checkbox" th:field="*{lessons}" th:value="${lesson.id}">
-            <span th:text="${lesson.subject}"></span>
+        <p th:each="course: ${courseList}">
+            <input type="checkbox" th:field="*{courses}" th:value="${course.id}">
+            <span th:text="${course.name}"></span>
         </p>
     </label>
 

@@ -5,9 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.model.IModel;
+import pl.wojdalski.learningmanagementsystem.model.Course;
 import pl.wojdalski.learningmanagementsystem.model.Lesson;
 import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.UserRepository;
+import pl.wojdalski.learningmanagementsystem.service.CourseService;
 import pl.wojdalski.learningmanagementsystem.service.LessonService;
 import pl.wojdalski.learningmanagementsystem.service.UserService;
 
@@ -19,16 +21,17 @@ public class UserController {
 
     private UserRepository userRepository;
     private UserService userService;
-    private LessonService lessonService;
+    private CourseService courseService;
 
-    public UserController(UserRepository userRepository, UserService userService, LessonService lessonService) {
+    public UserController(UserRepository userRepository, UserService userService, CourseService courseService) {
         this.userRepository = userRepository;
         this.userService = userService;
-        this.lessonService = lessonService;
+        this.courseService = courseService;
     }
 
     @GetMapping(value = "")
-    public String dashboard(){
+    public String dashboard() {
+
         return "user/dashboard";
     }
 
@@ -62,8 +65,8 @@ public class UserController {
     @GetMapping(value = "/edytuj")
     public String editUser(@RequestParam Long id,
                            Model model) {
-        List<Lesson> lessonList = lessonService.findAll();
-        model.addAttribute("lessonList", lessonList);
+        List<Course> courseList = courseService.findAll();
+        model.addAttribute("courseList", courseList);
         model.addAttribute("user", userService.getUser(id));
         return "addUser";
     }

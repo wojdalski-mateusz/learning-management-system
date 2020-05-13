@@ -13,9 +13,9 @@ Imię: <span th:text="${user.firstName}"></span><br>
 Nazwisko: <span th:text="${user.lastName}"></span><br>
 Login: <span th:text="${user.login}"></span><br>
 E-mail: <span th:text="${user.email}"></span><br>
-Wybrane zajęcia:
+Wybrane kursy:
 <ul>
-    <li th:each="lesson: ${user.lessons}" th:text="${lesson.subject}"></li>
+    <li th:each="course: ${user.courses}" th:text="${course.name}"></li>
 </ul>
 <div>
     <a th:href="@{/uzytkownik}">Strona główna</a>

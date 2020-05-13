@@ -21,7 +21,7 @@ public class User {
     private String email;
 
     @ManyToMany
-    private List<Lesson> lessons;
+    private List<Course> courses;
 
 
     public User() {
@@ -75,11 +75,11 @@ public class User {
         this.email = email;
     }
 
-    public List<Lesson> getLessons() {
-        return lessons;
+    public List<Course> getCourses() {
+        return courses;
     }
 
-    public void setLessons(List<Lesson> lessons) {
-        this.lessons = lessons;
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
     }
 }

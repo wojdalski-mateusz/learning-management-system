@@ -15,7 +15,7 @@
         <th>Nazwisko</th>
         <th>Login</th>
         <th>E-mail</th>
-        <th>Wybrane zajęcia</th>
+        <th>Kursy</th>
         <th>Akcja</th>
     </tr>
     </thead>
@@ -27,7 +27,7 @@
         <td th:text="${user.email}"></td>
         <td>
         <ul>
-            <li th:each="lesson: ${user.lessons}" th:text="${lesson.subject}"></li>
+            <li th:each="course: ${user.courses}" th:text="${course.name}"></li>
         </ul>
         </td>
         <td>

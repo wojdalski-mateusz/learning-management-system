@@ -4,13 +4,10 @@ package pl.wojdalski.learningmanagementsystem.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.thymeleaf.model.IModel;
 import pl.wojdalski.learningmanagementsystem.model.Course;
-import pl.wojdalski.learningmanagementsystem.model.Lesson;
 import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.UserRepository;
 import pl.wojdalski.learningmanagementsystem.service.CourseService;
-import pl.wojdalski.learningmanagementsystem.service.LessonService;
 import pl.wojdalski.learningmanagementsystem.service.UserService;
 
 import java.util.List;

@@ -11,6 +11,7 @@ import pl.wojdalski.learningmanagementsystem.model.User;
 import pl.wojdalski.learningmanagementsystem.repository.UserRepository;
 import pl.wojdalski.learningmanagementsystem.service.CourseService;
 import pl.wojdalski.learningmanagementsystem.service.LessonService;
+import pl.wojdalski.learningmanagementsystem.service.RoleService;
 import pl.wojdalski.learningmanagementsystem.service.UserService;
 
 
@@ -22,11 +23,13 @@ public class RegisterController {
 
     private UserService userService;
     private CourseService courseService;
+    private RoleService roleService;
 
 
-    public RegisterController(UserService userService, CourseService courseService) {
+    public RegisterController(UserService userService, CourseService courseService, RoleService roleService) {
         this.userService = userService;
         this.courseService = courseService;
+        this.roleService = roleService;
     }
 
     @GetMapping(value = "")
@@ -45,8 +48,10 @@ public class RegisterController {
     public String summaryRegister(@ModelAttribute User user,
                                   Model model) {
 
-            List<User> userList = userService.findAll();
-            model.addAttribute("userList", userList);
+        List<User> userList = userService.findAll();
+        model.addAttribute("userList", userList);
+
+        user.setRole(roleService.findByRoleName("user"));
 
         model.addAttribute("user", user);
         userService.save(user);

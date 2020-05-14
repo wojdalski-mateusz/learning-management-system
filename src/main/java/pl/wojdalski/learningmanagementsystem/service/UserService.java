@@ -1,7 +1,9 @@
 package pl.wojdalski.learningmanagementsystem.service;
 
 import org.springframework.stereotype.Service;
+import pl.wojdalski.learningmanagementsystem.model.Role;
 import pl.wojdalski.learningmanagementsystem.model.User;
+import pl.wojdalski.learningmanagementsystem.repository.RoleRepository;
 import pl.wojdalski.learningmanagementsystem.repository.UserRepository;
 
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 public class UserService {
 
     private UserRepository userRepository;
+
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -30,6 +33,5 @@ public class UserService {
     public User getUser(Long id) {
         return userRepository.getOne(id);
     }
-
 
 }

@@ -3,13 +3,10 @@ package pl.wojdalski.learningmanagementsystem.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import pl.wojdalski.learningmanagementsystem.model.Role;
-import pl.wojdalski.learningmanagementsystem.model.User;
 
-import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
-    List<User> findByRole(Role role);
-
+    Role findByRoleName(String name);
 }
